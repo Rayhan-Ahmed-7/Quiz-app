@@ -22,6 +22,7 @@
 
 let time_line = quiz_box.querySelector('.time_line');
 
+//Continue button
 continue_btn.onclick = ()=>{
     //time_line.classList.add('activeTimeLine');
     startTimeLine(0);
@@ -40,7 +41,7 @@ let timeLineValue = 0;
 const next_btn = document.querySelector('.next_btn')
 
 //getting questions and options from array
-
+//then generating html
 function showQuestions(index){
     const que_text = document.querySelector('.que_text');
     let que_tag = `<span>`+ questions[index].numb +". " + questions[index].question + `</span>`;
@@ -61,6 +62,8 @@ let crossIcon ='<div class="icon cross"><i class="fas fa-times"></i></div>';
 
 let userScore = 0;
 //let correctItem = [];
+
+//option list function when selected
 function optionSelector(item){
     clearInterval(counter);
     clearInterval(counterLine);
@@ -70,11 +73,12 @@ function optionSelector(item){
         console.log(questions[que_count].answer);
         item.classList.add('correct');
         item.insertAdjacentHTML('beforeend',tickIcon);
-        //correctItem.push(item);
         userScore +=1;
+        updateResult(userScore);
+        //another way
+        //correctItem.push(item);
         //console.log(correctItem);
         //updateResult(correctItem.length);
-        updateResult(userScore);
     }else{
         console.log('wrong ans');
         item.classList.add('incorrect');
@@ -131,7 +135,7 @@ result_box.querySelector('.restart').onclick = ()=>{
     showQuestions(que_count);
     queCounter(que_count+1);
     startTimer(15);
-    startTimeLine(timeLineValue);
+    startTimeLine(time);
     quiz_box.classList.add('activeQuiz');
     userScore = 0;
 }
@@ -158,9 +162,11 @@ function startTimer(time){
             let allOption = option_list.childNodes;
             for(let i =0; i<allOption.length; i++){
                 if(allOption[i].innerText === questions[que_count].answer){
-                    allOption[i].setAttribute('class','option correct');
+                    //allOption[i].setAttribute('class','option correct');
+                    allOption[i].classList.add('correct');
                     allOption[i].insertAdjacentHTML('beforeend',tickIcon);
                 }
+                allOption[i].classList.add('disabled');
             }
             quiz_box.querySelector('.time_text').innerText = 'Time Up';
             next_btn.style.display= 'block';
@@ -178,7 +184,7 @@ function startTimeLine(time){
         if(time >= 400){
             clearInterval(counterLine);
         }
-    },39);
+    },40);
 }
 
 //Updating result box

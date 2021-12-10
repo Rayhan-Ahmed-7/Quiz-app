@@ -3,10 +3,10 @@ let questions = [
     {
         numb:1,
         question:'what does HTML stand for?',
-        answer:'Hyper Text Markup Language',
+        answer:'Hypertext Markup Language',
         options:[
             "Hyper Text Preprocessor",
-            "Hyper Text Markup Language",
+            "Hypertext Markup Language",
             "Hyper Text Multiple Language",
             "Hyper Tool Multi Language"
         ]
@@ -25,10 +25,10 @@ let questions = [
     {
         numb:3,
         question:'what does PHP stand for?',
-        answer:'Hyper Text Programming',
+        answer:'Hypertext Preprocessor',
         options:[
-            "HyperText Preprocessor",
             "Hyper Text Programming",
+            "Hypertext Preprocessor",
             "Hyper Text Programing",
             "Home Text Preprocessor"
         ]

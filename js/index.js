@@ -179,7 +179,7 @@ function startTimer(time){
 //Visual Line setInterval Counter
 function startTimeLine(time){
     counterLine = setInterval(()=>{
-        time =time +1;
+        time +=1;
         time_line.style.width = time +'px';
         if(time >= 400){
             clearInterval(counterLine);
